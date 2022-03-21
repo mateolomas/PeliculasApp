@@ -19,6 +19,7 @@ const HomeScreen = () => {
   const {nowPlaying, topRated, popular, upcoming, isLoading} = useMovies();
   const {top} = useSafeAreaInsets();
   const {setMainColors} = useContext(GradientContext);
+
   const getPosterColors = async (index: number) => {
     const movie = nowPlaying[index];
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
@@ -55,12 +56,7 @@ const HomeScreen = () => {
               sliderWidth={viewportWidth}
               itemWidth={200}
               itemHeight={300}
-              layout={'default'}
-              loop={true}
-              autoplay={true}
-              autoplayInterval={3000}
-              autoplayDelay={500}
-              onSnapToItem={index => console.log(index)}
+              onSnapToItem={index => getPosterColors(index)}
             />
           </View>
 

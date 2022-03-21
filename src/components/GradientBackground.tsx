@@ -12,7 +12,6 @@ interface Props {
 export const GradientBackground = ({children}: Props) => {
   const {colors, prevColors, setPrevMainColors} = useContext(GradientContext);
 
-  console.log('GradientBackground: colors: ', colors);
   const {opacity, fadeIn, fadeOut} = useFade();
 
   useEffect(() => {
@@ -27,8 +26,8 @@ export const GradientBackground = ({children}: Props) => {
       <LinearGradient
         colors={[prevColors.primary, prevColors.secondary, 'white']}
         style={{...StyleSheet.absoluteFillObject}}
-        start={{x: 0.1, y: 0.1}}
-        end={{x: 0.5, y: 0.7}}
+        start={{x: 0, y: 0}}
+        end={{x: 0.8, y: 0.5}}
       />
 
       <Animated.View
